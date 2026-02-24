@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Anual 2026</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="nav-calendario">
+    <button onclick="cambiarYear(-1)">◀</button>
+    <h1>Calendario <span id="YearTexto"></span> </h1>
+    <button onclick="cambiarYear(1)">▶</button>
+    </div>
+
+    <div class="year" id="calendario">
+        <!-- Los meses se generarán automáticamente con JavaScript -->
+    </div>
+
+    <div id="modalAgenda" class="modal">
+        <div class="modal-contenido">
+            <h1>Agenda de Eventos</h1> 
+            <h1>Mi Agenda</h1>
+                <div id="agenda">
+                    <h2 id="fechaSeleccionadaTexto"></h2>
+                    <ul id="listaEventos"></ul>       
+                    <form id="formEvento">
+                        <input type="time" id="hora" required>
+                        <input type="text" id="titulo" placeholder="Descripcion" required>
+                        <select id="etiqueta" >
+                            <option value="Selecciona">Selecciona</option>
+                            <option value="IMPORTANTE">Importante</option>
+                            <option value="CITAS">Citas</option>
+                            <option value="MEDICO">Medico</option>
+                            <option value="OCIO">Ocio</option>
+                        </select>
+                        <button type="submit">Añadir evento</button>
+                    </form>
+                    <button onclick="cerrarAgenda()">Cerrar</button>
+                </div>
+        </div>
+    </div>
+
+    <script src="AI.js"></script>
+</body>
+
+</html>

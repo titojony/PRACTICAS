@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link rel="stylesheet" href="stilos.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <input class="search" type="text" placeholder="¿Qué ponemos?">
+    <button id="Inicio_Sesion">Inicio de sesion</button>
+  </header>
+
+  <!-- BARRA LATERAL -->
+  <aside class="sidebar">
+    <h1 style="color: #2563eb;">MusicApp</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Favoritos </a>
+      <a href="#">Tu biblioteca</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h2>Mas escuchados</h2>
+
+    <!-- Aquí JS insertará las playlists -->
+    <div id="playlistContainer" class="grid"></div>
+  </main>
+
+  <footer class="player">
+
+    <div class="left">
+    <p id="nowPlaying">Nada seleccionado</p>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">⏮</button>
+        <button id="playBtn">▶</button>
+        <button id="nextBtn">⏭</button>
+    </div>
+    <div class="right">
+
+    </div>
+
+  <script src="script.js"></script>
+  </footer>
+</body>
+</html>

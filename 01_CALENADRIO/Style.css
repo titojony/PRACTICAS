@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #5064d4, #392646);
+    color: white;
+    padding: 40px;
+}
+
+.nav-calendario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-calendario button {
+    background-color: #8a5698;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 0;
+}
+
+.nav-calendario button:hover {
+    background-color: #a96db8;
+    transform: scale(1.05);
+}
+
+#YearTexto {
+    font-size: 24px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+
+.year {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    grid-auto-rows: 50px;                  /* altura de fila */
+    gap: 5px;
+    background: #5a3563;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.mes {
+    grid-column: 1 / -1;   /* ocupa toda la fila */
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.days {
+    grid-column: 1 / -1;   
+    text-align: center;
+    background-color: #8a5698;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+/* Celdas de números del mes */
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8a5698;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+.cell:hover {
+    background-color: #418b73;
+    transform: scale(1.05);
+}
+
+/* Celdas vacías (para desplazar el primer día) */
+.cell.empty {
+    background: transparent;
+}
+
+
+.modal {
+    display: none;          /* oculto al inicio */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-contenido{
+    background: #5a3563;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+}
