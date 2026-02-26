@@ -1,0 +1,58 @@
+body{
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  margin:0;
+  padding:20px;
+}
+
+h1{margin-top:0;}
+
+.controles{
+  margin-bottom:12px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+button{
+  padding:8px 12px;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.primario{background:#22c55e;color:#022c22;}
+.advertencia{background:#f59e0b;color:#3f2a00;}
+.info{background:#38bdf8;color:#06283d;}
+
+.tableros{
+  display:grid;
+  grid-template-columns:repeat(3,max-content);
+  gap:24px;
+}
+
+.cuadricula{
+  display:grid;
+  gap:4px;
+}
+
+.celda{
+  width:36px;
+  height:36px;
+  background:#1f2937;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.celda.barco{background:#3d8abd;}
+.celda.impacto{background:#ef4444;}
+.celda.agua{background:#60a5fa;}
+.celda.hundido{background:#991b1b;}
+
+.mensaje{
+  margin-top:10px;
+  font-weight:bold;
+}

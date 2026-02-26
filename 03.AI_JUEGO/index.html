@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batalla Naval 8x8</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<h1>Batalla Naval 8×8</h1>
+
+<div class="controles">
+  <button id="botonIniciar" class="primario">Iniciar</button>
+  <button id="botonReiniciar" class="advertencia">Reiniciar</button>
+  <button id="botonRotar" class="info">Rotar barco (Horizontal)</button>
+  <label>Tamaño:
+  <select id="selectorTam">
+    <option value="8">8 × 8</option>
+    <option value="10">10 × 10</option>
+    <option value="12">12 × 12</option>
+  </select>
+</label>
+
+  <label>Barco:
+    <select id="selectorBarco">
+      <option value="4">1 × 4</option>
+      <option value="3">2 × 3</option>
+      <option value="2">3 × 2</option>
+      <option value="1">4 × 1</option>
+    </select>
+  </label>
+</div>
+
+<div class="tableros">
+
+  <div>
+    <strong>Tu tablero</strong>
+    <div id="tableroJugador" class="cuadricula"></div>
+  </div>
+
+  <div>
+    <strong>Tablero enemigo</strong>
+    <div id="tableroBot" class="cuadricula"></div>
+  </div>
+
+  <div>
+    <strong>Ataques enemigos</strong>
+    <div id="tableroAtaques" class="cuadricula"></div>
+  </div>
+
+</div>
+
+<div class="panel">
+  <div id="mensaje" class="mensaje">Coloca tus barcos</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
