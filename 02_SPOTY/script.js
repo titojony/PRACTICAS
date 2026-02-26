@@ -1,3 +1,7 @@
+
+const audios = new Audio();
+
+
 //----
 const techno = [
     "techno_imagenes/T01.jpg",
@@ -39,20 +43,22 @@ const playlists = [
   {
     title: "Techno",
     description: "Ritmos electrónicos potentes",
-    image: tecno_music()
+    image: tecno_music(),
+    audio: "audios/tecno/amar.mp3"
   },
   {
     title: "Latineo",
     description: "Para romper la pista",
-    image: latin_music()
+    image: latin_music(),
+    audio: "audios/latineo/baileinolvidable.mp3"
   },
   {
     title: "Relax & Chill",
     description: "Stay off",
-    image: chill_music()
+    image: chill_music(),
+    audio: "audio/chill/c1.mp3"
   }
 ];
-
 const container = document.getElementById("playlistContainer");
 
 playlists.forEach(p => {
@@ -67,17 +73,21 @@ playlists.forEach(p => {
   <h3>${p.title}</h3>`
   ;
 
-  card.onclick = () => selectPlaylist(p.title);
-
+card.onclick = () => selectPlaylist(p);
   container.appendChild(card);
 });
 
 const canciones = [
   "Techno — Dark Pulse",
-  "Latin — Fuego",
+  { titulo: "BaileInolvidable", archivo: "audios/latineo/baileinolvidable.mp3" },
   "Chill — Relax Waves",
 ];
+//------------- audio -------------
 
+
+
+
+//------------- footer ------------
 let indice = 0;
 
 const texto = document.getElementById("nowPlaying");
@@ -87,43 +97,65 @@ const playBtn = document.getElementById("playBtn");
 
 let reproduciendo = false;
 
-function selectPlaylist(name) {
-    document.getElementById("nowPlaying").textContent = "Seleccionado: " + name;
+function selectPlaylist(p) {
+
+  audios.src = p.audio;
+  audios.play();
+  playBtn.textContent = "⏸";
+  texto.textContent = "Reproduciendo: " + p.title;
+
 }
 
 
 const boton = document.getElementById("playBtn");
 
-boton.addEventListener("click", () => {
+playBtn.addEventListener("click", () => {
 
-  if (boton.textContent === "▶") {
-    boton.textContent = "⏸";
+  if (audios.paused) {
+    audios.play();
+    playBtn.textContent = "⏸";
   } else {
-    boton.textContent = "▶";
+    audios.pause();
+    playBtn.textContent = "▶";
   }
-
-    reproduciendo = !reproduciendo;
 
 });
 
 nextBtn.addEventListener("click", () => {
 
   indice++;
+  if (indice >= canciones.length) indice = 0;
 
-  if (indice >= canciones.length) {
-    indice = 0; // vuelve al principio
-  }
+  audios.play();
 
-  texto.textContent = canciones[indice];
+  texto.textContent = canciones[indice].titulo;
+  playBtn.textContent = "⏸";
 });
 
 prevBtn.addEventListener("click", () => {
 
   indice--;
+  if (indice < 0) indice = canciones.length - 1;
 
-  if (indice < 0) {
-    indice = canciones.length - 1; // última canción
-  }
+  audios.play();
 
-  texto.textContent = canciones[indice];
+  texto.textContent = canciones[indice].titulo;
+  playBtn.textContent = "⏸";
+});
+
+const progress = document.getElementById("progress");
+
+audios.addEventListener("timeupdate", () => {
+
+  if (!audios.duration) return;
+
+  const porcentaje =
+    (audios.currentTime / audios.duration) * 100;
+
+  progress.value = porcentaje;
+});
+
+progress.addEventListener("input", () => {
+  audios.currentTime =
+    (progress.value / 100) * audios.duration;
 });
